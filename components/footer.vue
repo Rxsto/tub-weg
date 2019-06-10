@@ -11,12 +11,9 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  padding: 10px;
-  background: var(--darker);
-  box-shadow: var(--shadow-top);
-
-  h1 {
-    color: var(--white);
-  }
+  display: flex;
+  flex-direction: row;
+  background: var(--black);
+  box-shadow: var(--shadow-all);
 }
 </style>
