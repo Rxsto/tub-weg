@@ -1,9 +1,8 @@
 {
-  "name": "web",
-  "version": "1.0.0",
-  "description": "The portfolio website of Tuija Unho-Berger",
-  "author": "Rxsto",
-  "private": true,
+  "name": "@tub/web",
+  "version": "0.1.0",
+  "description": "The portfolio website of Tuija Unho-Berger https://tub-aiglart.com",
+  "author": "Rxsto <oz@farfrom.social> (https://rxsto.me)",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -12,13 +11,18 @@
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tub-aiglart/web.git"
+  },
   "dependencies": {
-    "@nuxtjs/axios": "^5.5.1",
+    "@nuxtjs/axios": "^5.5.3",
     "@nuxtjs/pwa": "^2.6.0",
-    "cookie-universal-nuxt": "^2.0.14",
+    "@tub/css": "github:tub-aiglart/css",
     "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
     "node-sass": "^4.12.0",
-    "nuxt": "^2.7.1",
+    "nuxt": "^2.8.0",
     "sass-loader": "^7.1.0"
   },
   "devDependencies": {

@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'universal',
 
@@ -10,7 +12,7 @@ export default {
     ],
     link: [
       { rel: 'icon', href: '/img/logo.png' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind+Siliguri:300,700|Roboto:300,500,700' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:400,500,700&display=swap' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.7.1/css/all.css' }
     ]
   },
@@ -18,15 +20,18 @@ export default {
   loading: { color: '#fff' },
 
   css: [
-    '@/static/css/reset.css',
-    '@/static/css/default.css'
+    '~/node_modules/@tub/css/build/framework.css'
   ],
 
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    ['cookie-universal-nuxt', { alias: 'cookies' }]
+    '@nuxtjs/pwa'
   ],
+
+  env: {
+    CDN_PATH: process.env.CDN_PATH,
+    BASE_URL: process.env.BASE_URL
+  },
 
   build: {
     extend(config, ctx) {
