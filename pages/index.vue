@@ -36,6 +36,45 @@ export default {
     .cv {
       font-size: 30px;
       font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 0 20px;
+    }
+  }
+}
+
+@media only screen and(max-width: 1200px) {
+  .index {
+
+    .wrapper {
+      flex-direction: column;
+
+      .portrait {
+        width: auto;
+        margin: 0 0 50px 0;
+      }
+
+      .cv {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and(max-width: 500px) {
+  .index {
+
+    .wrapper {
+      flex-direction: column;
+      padding: 25px;
+
+      .portrait {
+        height: 250px;
+      }
+
+      .cv {
+        padding: 0;
+        font-size: 17px;
+      }
     }
   }
 }
