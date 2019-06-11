@@ -6,6 +6,9 @@ RUN mkdir ${APP_ROOT}
 WORKDIR ${APP_ROOT}
 ADD . ${APP_ROOT}
 
+RUN apk update && apk upgrade
+RUN apk add git
+
 RUN npm install
 RUN npm run build
 
