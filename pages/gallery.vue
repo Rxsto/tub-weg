@@ -31,7 +31,7 @@ export default {
     const result = await $axios.$get('https://api.tub-aiglart.com' + '/images')
     return {
       images: result.filter(image => image.displayed === true),
-      path: process.env.CDN_PATH + 'images/'
+      path: 'https://api.tub-aiglart.com' + 'images/'
     }
   },
   methods: {
