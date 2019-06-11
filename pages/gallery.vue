@@ -28,7 +28,7 @@
 <script>
 export default {
   async asyncData({ env, $axios }) {
-    const result = await $axios.$get(env.BASE_URL + '/images')
+    const result = await $axios.$get('https://api.tub-aiglart.com' + '/images')
     return {
       images: result.filter(image => image.displayed === true),
       path: process.env.CDN_PATH + 'images/'

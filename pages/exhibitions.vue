@@ -80,7 +80,7 @@
 <script>
 export default {
   async asyncData({ env, $axios }) {
-    const result = await $axios.$get(env.BASE_URL + '/exhibitions')
+    const result = await $axios.$get('https://api.tub-aiglart.com' + '/exhibitions')
     return {
       solo: result.filter(exhibition => exhibition.type === 'solo').sort((a, b) => (a.year.includes('-') ? a.year.split('-')[0] : a.year) - (b.year.includes('-') ? b.year.split('-')[0] : b.year)),
       group: result.filter(exhibition => exhibition.type === 'group').sort((a, b) => (a.year.includes('-') ? a.year.split('-')[0] : a.year) - (b.year.includes('-') ? b.year.split('-')[0] : b.year))
