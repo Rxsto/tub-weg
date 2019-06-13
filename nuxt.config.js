@@ -28,6 +28,10 @@ export default {
     '@nuxtjs/pwa'
   ],
 
+  env: {
+    CDN_PATH: process.env.CDN_PATH
+  },
+
   axios: {
     baseURL: process.env.BASE_URL
   },
