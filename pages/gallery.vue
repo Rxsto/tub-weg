@@ -28,10 +28,11 @@
 <script>
 export default {
   async asyncData({ env, $axios }) {
-    const result = await $axios.$get('https://api.tub-aiglart.com' + '/images')
+    console.log(env.CDN_PATH) /* eslint-disable-line */
+    const result = await $axios.$get('/images')
     return {
-      images: result.filter(image => image.displayed == true || image.displayed == 'true'),
-      path: 'https://cdn.tub-aiglart.com' + '/images/'
+      images: result.filter(image => image.displayed === true || image.displayed === 'true'),
+      path: `${env.CDN_PATH}/images/`
     }
   },
   methods: {
@@ -40,11 +41,9 @@ export default {
       const image = document.getElementById(`full-${id}`)
       if (image.style.display === 'flex') {
         image.style.display = 'none'
-        image.style.top = '0'
         body.style.overflow = 'initial'
       } else {
         image.style.display = 'flex'
-        image.style.top = window.scrollY + 'px'
         body.style.overflow = 'hidden'
       }
     }
@@ -65,9 +64,10 @@ export default {
     margin: 25px 25px 0 25px;
     padding: 50px;
     box-shadow: var(--shadow-all);
+    flex-wrap: wrap;
 
     .full {
-      position: absolute;
+      position: fixed;
       display: none;
       flex-direction: row;
       justify-content: center;
@@ -99,16 +99,21 @@ export default {
         font-weight: 700;
         font-family: var(--font-mono);
         text-align: center;
+
+        &:hover {
+          cursor: pointer;
+          background: var(--white);
+        }
       }
     }
 
     .thumbnail {
-      width: 50%;
+      margin-right: 50px;
 
       .source {
         width: auto;
         height: auto;
-        max-height: 100%;
+        max-height: 500px;
         max-width: 100%;
 
         &:hover {
@@ -121,8 +126,6 @@ export default {
     .text {
       display: flex;
       flex-direction: column;
-      padding: 0 50px;
-      max-width: 40%;
 
       .title {
         font-size: 50px;
@@ -155,11 +158,13 @@ export default {
 
       .thumbnail {
         width: auto;
+        margin: 0;
       }
 
       .text {
         max-width: 100%;
         padding: 20px 0 0 0;
+        text-align: center;
       }
     }
   }
@@ -173,7 +178,7 @@ export default {
       .text {
 
         .title {
-          font-size: 30px;
+          font-size: 25px;
         }
 
         .description {
