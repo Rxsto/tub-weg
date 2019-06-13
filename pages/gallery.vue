@@ -28,12 +28,10 @@
 <script>
 export default {
   async asyncData({ env, $axios }) {
-    console.log(env.CDN_PATH) /* eslint-disable-line */
-    console.log(process.env.CDN_PATH) /* eslint-disable-line */
     const result = await $axios.$get('/images')
     return {
       images: result.filter(image => image.displayed === true || image.displayed === 'true'),
-      path: `${env.CDN_PATH}/images/`
+      path: 'https://cdn.tub-aiglart.com/images/'
     }
   },
   methods: {

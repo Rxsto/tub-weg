@@ -79,9 +79,8 @@
 
 <script>
 export default {
-  async asyncData({ env, $axios }) {
-    const result = await $axios.$get('/exhibitions')
-    console.log(result) /* eslint-disable-line */
+  async asyncData({ env, app }) {
+    const result = await app.$axios.$get('/exhibitions')
     return {
       solo: result.filter(exhibition => exhibition.type === 'solo').sort((a, b) => (a.year.includes('-') ? a.year.split('-')[0] : a.year) - (b.year.includes('-') ? b.year.split('-')[0] : b.year)),
       group: result.filter(exhibition => exhibition.type === 'group').sort((a, b) => (a.year.includes('-') ? a.year.split('-')[0] : a.year) - (b.year.includes('-') ? b.year.split('-')[0] : b.year))
