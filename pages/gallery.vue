@@ -27,11 +27,11 @@
 
 <script>
 export default {
-  async asyncData({ env, $axios }) {
-    const result = await $axios.$get('/images')
+  async asyncData({ app }) {
+    const result = await app.$axios.$get(`${app.$env.BASE_URL}/images`)
     return {
       images: result.filter(image => image.displayed === true || image.displayed === 'true'),
-      path: `${env.CDN_PATH}/images/`
+      path: `${app.$env.CDN_PATH}/images/`
     }
   },
   methods: {

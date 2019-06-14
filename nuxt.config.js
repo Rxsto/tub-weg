@@ -25,16 +25,14 @@ export default {
 
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    ['nuxt-env', {
+      keys: [
+        'CDN_PATH',
+        'BASE_URL'
+      ]
+    }]
   ],
-
-  env: {
-    CDN_PATH: process.env.CDN_PATH
-  },
-
-  axios: {
-    baseURL: process.env.BASE_URL
-  },
 
   build: {
     extend(config, ctx) {
