@@ -79,6 +79,18 @@ export default {
 @media only screen and(max-width: 1200px) {
   .index {
 
+    .news {
+      padding: 25px;
+
+      .title {
+        font-size: 40px;
+      }
+
+      .description {
+        font-size: 20px;
+      }
+    }
+
     .wrapper {
       flex-direction: column;
 
@@ -96,6 +108,17 @@ export default {
 
 @media only screen and(max-width: 500px) {
   .index {
+
+    .news {
+
+      .title {
+        font-size: 30px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+    }
 
     .wrapper {
       flex-direction: column;
