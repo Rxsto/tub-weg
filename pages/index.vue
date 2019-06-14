@@ -1,5 +1,13 @@
 <template>
   <div class="index">
+    <div v-if="news.displayed" class="news">
+      <h1 class="title">
+        {{ news.title }}
+      </h1>
+      <p class="description">
+        {{ news.description }}
+      </p>
+    </div>
     <div class="wrapper">
       <img class="portrait" src="/img/portrait.jpg" alt="tuija unho-berger">
       <p class="cv">
@@ -11,13 +19,40 @@
 
 <script>
 export default {
+  async asyncData({ app }) {
+    const result = await app.$axios.$get(`${app.$env.BASE_URL}/news`)
+    return {
+      news: result
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .index {
   display: flex;
+  flex-direction: column;
   padding: 25px;
+
+  .news {
+    display: flex;
+    flex-direction: column;
+    background: var(--black);
+    box-shadow: var(--shadow-all);
+    padding: 50px;
+    margin-bottom: 25px;
+
+    .title {
+      font-size: 50px;
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 25px;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+    }
+  }
 
   .wrapper {
     display: flex;
@@ -26,7 +61,6 @@ export default {
     background: var(--black);
     box-shadow: var(--shadow-all);
     padding: 50px;
-    width: 100%;
 
     .portrait {
       width: 100%;
